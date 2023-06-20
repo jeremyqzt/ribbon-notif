@@ -1,0 +1,11 @@
+enum EmailType {
+  PASSWORD
+}
+
+type SendEmailResult {
+    isSuccess: boolean
+}
+
+type mutation{
+   sendEmail(toAddress: string, type: EmailType): SendEmailResult
+}
