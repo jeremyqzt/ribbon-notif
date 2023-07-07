@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ribbon-notif
+  graphql:
+    graphiql:
+      enabled: true
