@@ -10,11 +10,3 @@ type mutation{
    sendEmail(toAddress: String, type: EmailType): SendEmailResult
 }
 
-type Query {
-    shows(titleFilter: String): [Show]
-}
-
-type Show {
-    title: String
-    releaseYear: Int
-}

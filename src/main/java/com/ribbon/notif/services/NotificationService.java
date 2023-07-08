@@ -1,7 +1,10 @@
 package com.ribbon.notif.services;
 
-class NotificationService {
-    private void sendNotif() {
+import org.springframework.stereotype.Service;
+
+@Service
+public class NotificationService {
+    public void sendNotif() {
         return;
     }
 }
