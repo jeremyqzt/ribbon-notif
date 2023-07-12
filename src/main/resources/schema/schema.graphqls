@@ -6,7 +6,7 @@ type SendEmailResult {
     isSuccess: Boolean
 }
 
-type mutation{
+type Mutation {
    sendEmail(toAddress: String, type: EmailType): SendEmailResult
 }
 
