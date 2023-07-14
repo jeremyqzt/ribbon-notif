@@ -11,5 +11,11 @@ import lombok.Getter;
 public class Environ {
     @Value("${API_KEY}")
     private String apiKey;
+
+    @Value("${elasticmail.url}")
+    private String elasticUrl;
+
+    @Value("${elasticmail.path}")
+    private String elasticPath;
 }
 

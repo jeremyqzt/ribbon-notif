@@ -18,9 +18,9 @@ public class NotifFetcher {
 
     @DgsData(parentType = "Mutation", field = "sendEmail")
     public SendEmailResult sendEmail(@InputArgument String toAddress, @InputArgument EmailType type) {
-        log.info("Wtf");
+        log.info("starting email to: {}, type: {}", toAddress, type.toString());
 
-        notifService.sendNotif();
+        notifService.sendNotif(toAddress);
 
         return SendEmailResult.newBuilder().isSuccess(true).build();
     }

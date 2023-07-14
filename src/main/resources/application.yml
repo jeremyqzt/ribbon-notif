@@ -4,3 +4,7 @@ spring:
   graphql:
     graphiql:
       enabled: true
+
+elasticmail:
+  url: https://api.elasticemail.com
+  path: /v2/email/send

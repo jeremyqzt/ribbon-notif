@@ -17,22 +17,19 @@ import reactor.core.publisher.Mono;
 public class NotificationService {
     private final Environ environment;
 
-    public void sendNotif() {
-
-        String apiKey = environment.getApiKey();
-    
+    public void sendNotif(String toAddress) {
 
         WebClient webClient = WebClient.builder()
-                .baseUrl("https://api.elasticemail.com")
+                .baseUrl(environment.getElasticUrl())
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
 
         Mono<String> response = webClient
                 .get()
                 .uri(builder -> {
-                    return builder.path("/v2/email/send")
-                            .queryParam("apikey", apiKey)
-                            .queryParam("to", "jq357@hotmail.com")
+                    return builder.path(environment.getElasticPath())
+                            .queryParam("apikey", environment.getApiKey())
+                            .queryParam("to", toAddress)
                             .queryParam("template", "recovery")
                             .queryParam("from", "no-reply@ribbonreceipts.com")
                             .build();
