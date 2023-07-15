@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 public class NotificationService {
     private final Environ environment;
 
-    public void sendNotif(String toAddress) {
+    public void sendNotif(String toAddress, String remoteToken) {
 
         WebClient webClient = WebClient.builder()
                 .baseUrl(environment.getElasticUrl())
@@ -32,7 +32,7 @@ public class NotificationService {
                             .queryParam("to", toAddress)
                             .queryParam("template", "recovery")
                             .queryParam("from", "no-reply@ribbonreceipts.com")
-                            .queryParam("merge_recoveryKey", "test")
+                            .queryParam("merge_recoveryKey", remoteToken)
                             .queryParam("merge_username", toAddress)
                             .build();
                 }).retrieve()

@@ -7,6 +7,6 @@ type SendEmailResult {
 }
 
 type Mutation {
-   sendEmail(toAddress: String, type: EmailType): SendEmailResult
+   sendEmail(toAddress: String, type: EmailType, remoteToken: String): SendEmailResult
 }
 

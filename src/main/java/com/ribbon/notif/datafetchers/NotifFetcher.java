@@ -17,10 +17,11 @@ public class NotifFetcher {
     private final NotificationService notifService;
 
     @DgsData(parentType = "Mutation", field = "sendEmail")
-    public SendEmailResult sendEmail(@InputArgument String toAddress, @InputArgument EmailType type) {
+    public SendEmailResult sendEmail(@InputArgument String toAddress, @InputArgument EmailType type,
+            @InputArgument String remoteToken) {
         log.info("starting email to: {}, type: {}", toAddress, type.toString());
 
-        notifService.sendNotif(toAddress);
+        notifService.sendNotif(toAddress, remoteToken);
 
         return SendEmailResult.newBuilder().isSuccess(true).build();
     }
