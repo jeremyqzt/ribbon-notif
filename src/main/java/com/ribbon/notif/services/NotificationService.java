@@ -32,6 +32,8 @@ public class NotificationService {
                             .queryParam("to", toAddress)
                             .queryParam("template", "recovery")
                             .queryParam("from", "no-reply@ribbonreceipts.com")
+                            .queryParam("merge_recoveryKey", "test")
+                            .queryParam("merge_username", toAddress)
                             .build();
                 }).retrieve()
                 .bodyToMono(String.class);
