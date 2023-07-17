@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ribbonnotif
+  labels:
+    app: ribbonnotif
+spec:
+  selector:
+    matchLabels:
+      app: ribbonnotif
+  template:
+    metadata:
+      labels:
+        app: ribbonnotif
+    spec:
+      containers:
+      - name: ribbonnotif-app
+        image: $IMAGE
+        resources:
+          limits:
+            cpu: 400m
+          requests:
+            cpu: 300m
+        volumeMounts:
+        - name: google-gcs-key
+          mountPath: /var/secrets/google
+        imagePullPolicy: Always
+        env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: notif
+                  key: api_key
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ribbonnotif
+  labels:
+    app: ribbonnotif
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: 'http-ingress'
+  selector:
+    app: ribbonnotif
