@@ -21,7 +21,7 @@ public class NotifFetcher {
             @InputArgument String remoteToken) {
         log.info("starting email to: {}, type: {}", toAddress, type.toString());
 
-        notifService.sendNotif(toAddress, remoteToken);
+        // notifService.sendNotif(toAddress, remoteToken);
 
         return SendEmailResult.newBuilder().isSuccess(true).build();
     }
