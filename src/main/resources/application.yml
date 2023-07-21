@@ -5,6 +5,9 @@ spring:
     graphiql:
       enabled: true
 
+server:
+  port : 8081
+
 elasticmail:
   url: https://api.elasticemail.com
   path: /v2/email/send
