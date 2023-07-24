@@ -19,4 +19,4 @@ echo "Buildx build\n"
 eval "docker buildx build --push --build-arg JAR_FILE=target/*.jar --platform=linux/arm64,linux/amd64 -f Docker/Dockerfile -t jeremyqzt/ribbonnotif:$VERSION ."
 
 
-IMAGE="jeremyqzt/ribbonnotif:$VERSION" envsubst < k8.yaml | kubectl apply -f -
+IMAGE="jeremyqzt/ribbonnotif:$VERSION" envsubst < k8s.yaml | kubectl apply -f -

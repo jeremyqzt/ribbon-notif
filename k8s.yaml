@@ -18,13 +18,9 @@ spec:
         image: $IMAGE
         resources:
           limits:
-            cpu: 400m
+            cpu: 200m
           requests:
-            cpu: 300m
-        volumeMounts:
-        - name: google-gcs-key
-          mountPath: /var/secrets/google
-        imagePullPolicy: Always
+            cpu: 150m
         env:
             - name: API_KEY
               valueFrom:
@@ -32,7 +28,7 @@ spec:
                   name: notif
                   key: api_key
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
 
 ---
 apiVersion: v1
