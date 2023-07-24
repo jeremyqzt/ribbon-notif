@@ -20,10 +20,14 @@ public class NotifFetcher {
     public SendEmailResult sendEmail(@InputArgument String toAddress, @InputArgument EmailType type,
             @InputArgument String remoteToken) {
         log.info("starting email to: {}, type: {}", toAddress, type.toString());
-
-        notifService.sendNotif(toAddress, remoteToken);
-
-        return SendEmailResult.newBuilder().isSuccess(true).build();
+        boolean success = true;
+        if (toAddress.length() == 0){
+            success = false;
+        } else {
+            notifService.sendNotif(toAddress, remoteToken);
+        }
+        
+        return SendEmailResult.newBuilder().isSuccess(success).build();
     }
 
 }
