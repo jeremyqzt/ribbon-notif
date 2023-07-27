@@ -40,8 +40,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8081
+    targetPort: 8081
     name: 'http-ingress'
   selector:
     app: ribbonnotif
