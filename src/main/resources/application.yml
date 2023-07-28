@@ -11,3 +11,12 @@ server:
 elasticmail:
   url: https://api.elasticemail.com
   path: /v2/email/send
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    probes:
+      enabled: true
