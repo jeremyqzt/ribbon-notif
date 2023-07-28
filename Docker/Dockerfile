@@ -1,7 +1,14 @@
+FROM maven:3.9.3-amazoncorretto-20 AS builder
+
+ADD ./pom.xml pom.xml
+ADD ./src src/
+
+RUN mvn clean package -Dmaven.test.skip
+
 FROM openjdk:20-jdk-slim
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
+
+COPY --from=builder target/notif-0.0.1-SNAPSHOT.jar notif-0.0.1-SNAPSHOT.jar
+
 EXPOSE 8081
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+CMD ["java", "-jar", "notif-0.0.1-SNAPSHOT.jar"]
