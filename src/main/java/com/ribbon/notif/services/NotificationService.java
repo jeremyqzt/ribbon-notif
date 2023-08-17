@@ -33,6 +33,7 @@ public class NotificationService {
                             .queryParam("template", "recovery")
                             .queryParam("from", "no-reply@ribbonreceipts.com")
                             .queryParam("merge_recoveryKey", remoteToken)
+                            .queryParam("merge_displayKey", remoteToken)
                             .queryParam("merge_username", toAddress)
                             .build();
                 }).retrieve()
