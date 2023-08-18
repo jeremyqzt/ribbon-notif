@@ -18,9 +18,9 @@ spec:
         image: $IMAGE
         resources:
           limits:
-            cpu: 150m
+            cpu: 200m
           requests:
-            cpu: 150m
+            cpu: 200m
         env:
             - name: API_KEY
               valueFrom:
