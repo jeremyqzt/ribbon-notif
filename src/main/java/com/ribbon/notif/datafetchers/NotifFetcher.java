@@ -24,7 +24,7 @@ public class NotifFetcher {
         if (toAddress.length() == 0){
             success = false;
         } else {
-            notifService.sendNotif(toAddress, remoteToken);
+            notifService.sendNotif(toAddress, remoteToken, type);
         }
         
         return SendEmailResult.newBuilder().isSuccess(success).build();

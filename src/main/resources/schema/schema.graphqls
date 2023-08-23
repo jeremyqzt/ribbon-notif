@@ -1,5 +1,6 @@
 enum EmailType {
   PASSWORD
+  RECOVERY_DONE
 }
 
 type SendEmailResult {

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.ribbon.notif.config.Environ;
+import com.ribbon.notif.generated.types.EmailType;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,7 @@ import reactor.core.publisher.Mono;
 public class NotificationService {
     private final Environ environment;
 
-    public void sendNotif(String toAddress, String remoteToken) {
+    public void sendNotif(String toAddress, String remoteToken, EmailType type) {
 
         WebClient webClient = WebClient.builder()
                 .baseUrl(environment.getElasticUrl())
