@@ -9,7 +9,7 @@ public class EmailConstants {
     public static final String RECOVERY_EMAIL = "recovery";
     public static final String RECOVERY_DONE_EMAIL = "recoveryComplete";
 
-    public Map <EmailType, String> EMAIL_MAP = new HashMap<EmailType, String>()
+    public static final Map <EmailType, String> EMAIL_MAP = new HashMap<EmailType, String>()
     {
         {
             put(EmailType.PASSWORD, RECOVERY_EMAIL);

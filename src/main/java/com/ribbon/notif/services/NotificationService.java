@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.ribbon.notif.config.Environ;
+import com.ribbon.notif.constants.EmailConstants;
 import com.ribbon.notif.generated.types.EmailType;
 
 import lombok.AllArgsConstructor;
@@ -31,7 +32,7 @@ public class NotificationService {
                     return builder.path(environment.getElasticPath())
                             .queryParam("apikey", environment.getApiKey())
                             .queryParam("to", toAddress)
-                            .queryParam("template", "recovery")
+                            .queryParam("template", EmailConstants.EMAIL_MAP.get(type))
                             .queryParam("from", "no-reply@ribbonreceipts.com")
                             .queryParam("merge_recoveryKey", remoteToken)
                             .queryParam("merge_displayKey", remoteToken)
