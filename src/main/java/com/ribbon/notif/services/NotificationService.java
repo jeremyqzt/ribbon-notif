@@ -18,6 +18,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class NotificationService {
     private final Environ environment;
+    private final String FROM_ADDRESS = "no-reply@ribbonreceipts.com";
 
     public void sendNotif(String toAddress, String remoteToken, EmailType type) {
 
@@ -33,7 +34,7 @@ public class NotificationService {
                             .queryParam("apikey", environment.getApiKey())
                             .queryParam("to", toAddress)
                             .queryParam("template", EmailConstants.EMAIL_MAP.get(type))
-                            .queryParam("from", "no-reply@ribbonreceipts.com")
+                            .queryParam("from", FROM_ADDRESS)
                             .queryParam("merge_recoveryKey", remoteToken)
                             .queryParam("merge_displayKey", remoteToken)
                             .queryParam("merge_username", toAddress)
